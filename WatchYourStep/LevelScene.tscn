@@ -1,0 +1,652 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://OldBlindMan.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/textures/mouse_cursor.png" type="Texture" id=2]
+[ext_resource path="res://Mouse Cursor.gd" type="Script" id=3]
+[ext_resource path="res://Road.tscn" type="PackedScene" id=4]
+[ext_resource path="res://grass.png" type="Texture" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://flower_3.png" type="Texture" id=8]
+[ext_resource path="res://flower_0.png" type="Texture" id=9]
+[ext_resource path="res://flower_1.png" type="Texture" id=10]
+[ext_resource path="res://flower_2.png" type="Texture" id=11]
+[ext_resource path="res://LevelScene.gd" type="Script" id=12]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[node name="LevelScene" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="Mouse Cursor" type="Sprite" parent="."]
+pause_mode = 2
+material = SubResource( 1 )
+position = Vector2( 12, 12 )
+z_index = 10
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 15, 30 )
+collision_layer = 1
+
+[node name="OldMan" parent="." instance=ExtResource( 1 )]
+collision_mask = 0
+
+[node name="Road2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -237, -182 )
+
+[node name="Road3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -237, -232 )
+
+[node name="Road4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -237, -282 )
+
+[node name="Road" parent="." instance=ExtResource( 4 )]
+position = Vector2( -237, -132 )
+
+[node name="Grass" type="Sprite" parent="."]
+position = Vector2( 5.96046e-08, 51 )
+scale = Vector2( 1.01667, 3.74 )
+z_index = -2
+texture = ExtResource( 5 )
+
+[node name="Flower0" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -357, -20 )
+
+[node name="Flower1" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -344, -9 )
+
+[node name="Flower2" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -323, -20 )
+
+[node name="Flower3" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -301, -7 )
+
+[node name="Flower4" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -287, -23 )
+
+[node name="Flower5" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -281, -18 )
+
+[node name="Flower6" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -226, -19 )
+
+[node name="Flower7" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -131, -13 )
+
+[node name="Flower8" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -200, -19 )
+
+[node name="Flower9" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -175, -8 )
+
+[node name="Flower10" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -255, -5 )
+
+[node name="Flower11" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( 86, -19 )
+
+[node name="Flower12" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 27, -10 )
+
+[node name="Flower13" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( 67, -11 )
+
+[node name="Flower14" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 45, -22 )
+
+[node name="Flower15" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -48, -19 )
+
+[node name="Flower16" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -14, -9 )
+
+[node name="Flower17" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -94, -15 )
+
+[node name="Flower18" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -112, -11 )
+
+[node name="Flower19" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -75, -11 )
+
+[node name="Flower20" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -156, -21 )
+
+[node name="Flower21" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -80, -27 )
+
+[node name="Flower22" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -34, -11 )
+
+[node name="Flower24" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 7, -27 )
+
+[node name="Flower23" type="Sprite" parent="."]
+position = Vector2( 143, 0 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 48, -8 )
+
+[node name="Flower25" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -357, -20 )
+
+[node name="Flower26" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -344, -9 )
+
+[node name="Flower27" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -323, -20 )
+
+[node name="Flower28" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -301, -7 )
+
+[node name="Flower29" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -287, -23 )
+
+[node name="Flower30" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -281, -18 )
+
+[node name="Flower31" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -226, -19 )
+
+[node name="Flower32" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -131, -13 )
+
+[node name="Flower33" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -200, -19 )
+
+[node name="Flower34" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -175, -8 )
+
+[node name="Flower35" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -255, -5 )
+
+[node name="Flower36" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( 86, -19 )
+
+[node name="Flower37" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 27, -10 )
+
+[node name="Flower38" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( 67, -11 )
+
+[node name="Flower39" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 45, -22 )
+
+[node name="Flower40" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -48, -19 )
+
+[node name="Flower41" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -14, -9 )
+
+[node name="Flower42" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -94, -15 )
+
+[node name="Flower43" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -112, -11 )
+
+[node name="Flower44" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -75, -11 )
+
+[node name="Flower45" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -156, -21 )
+
+[node name="Flower46" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -80, -27 )
+
+[node name="Flower47" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -34, -11 )
+
+[node name="Flower48" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 7, -27 )
+
+[node name="Flower49" type="Sprite" parent="."]
+position = Vector2( 137, 39 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 48, -8 )
+
+[node name="Flower50" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -357, -20 )
+
+[node name="Flower51" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -344, -9 )
+
+[node name="Flower52" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -323, -20 )
+
+[node name="Flower53" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -301, -7 )
+
+[node name="Flower54" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -287, -23 )
+
+[node name="Flower55" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -281, -18 )
+
+[node name="Flower56" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -226, -19 )
+
+[node name="Flower57" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -131, -13 )
+
+[node name="Flower58" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -200, -19 )
+
+[node name="Flower59" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -175, -8 )
+
+[node name="Flower60" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -255, -5 )
+
+[node name="Flower61" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( 86, -19 )
+
+[node name="Flower62" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 27, -10 )
+
+[node name="Flower63" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( 67, -11 )
+
+[node name="Flower64" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 45, -22 )
+
+[node name="Flower65" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -48, -19 )
+
+[node name="Flower66" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -14, -9 )
+
+[node name="Flower67" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -94, -15 )
+
+[node name="Flower68" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -112, -11 )
+
+[node name="Flower69" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -75, -11 )
+
+[node name="Flower70" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -156, -21 )
+
+[node name="Flower71" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -80, -27 )
+
+[node name="Flower72" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -34, -11 )
+
+[node name="Flower73" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 7, -27 )
+
+[node name="Flower74" type="Sprite" parent="."]
+position = Vector2( 142, 79 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 48, -8 )
+
+[node name="Flower75" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -357, -20 )
+
+[node name="Flower76" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -344, -9 )
+
+[node name="Flower77" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -323, -20 )
+
+[node name="Flower78" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -301, -7 )
+
+[node name="Flower79" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -287, -23 )
+
+[node name="Flower80" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -281, -18 )
+
+[node name="Flower81" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -226, -19 )
+
+[node name="Flower82" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -131, -13 )
+
+[node name="Flower83" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -200, -19 )
+
+[node name="Flower84" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -175, -8 )
+
+[node name="Flower85" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -255, -5 )
+
+[node name="Flower86" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( 86, -19 )
+
+[node name="Flower87" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 27, -10 )
+
+[node name="Flower88" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( 67, -11 )
+
+[node name="Flower89" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 45, -22 )
+
+[node name="Flower90" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -48, -19 )
+
+[node name="Flower91" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -14, -9 )
+
+[node name="Flower92" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -94, -15 )
+
+[node name="Flower93" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 8 )
+offset = Vector2( -112, -11 )
+
+[node name="Flower94" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -75, -11 )
+
+[node name="Flower95" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( -156, -21 )
+
+[node name="Flower96" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 9 )
+offset = Vector2( -80, -27 )
+
+[node name="Flower97" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( -34, -11 )
+
+[node name="Flower98" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 11 )
+offset = Vector2( 7, -27 )
+
+[node name="Flower99" type="Sprite" parent="."]
+position = Vector2( 136, 118 )
+z_index = 1
+texture = ExtResource( 10 )
+offset = Vector2( 48, -8 )

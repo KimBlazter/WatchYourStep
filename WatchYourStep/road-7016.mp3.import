@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/road-7016.mp3-289c114156e77b73ebcb1d0251ffb93e.mp3str"
+
+[deps]
+
+source_file="res://road-7016.mp3"
+dest_files=[ "res://.import/road-7016.mp3-289c114156e77b73ebcb1d0251ffb93e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

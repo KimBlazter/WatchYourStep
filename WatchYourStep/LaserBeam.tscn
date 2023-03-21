@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://beam.png" type="Texture" id=1]
+[ext_resource path="res://LaserBeam.gd" type="Script" id=2]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (4).png" type="Texture" id=3]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (7).png" type="Texture" id=4]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (5).png" type="Texture" id=5]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (2).png" type="Texture" id=6]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (3).png" type="Texture" id=7]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (6).png" type="Texture" id=8]
+[ext_resource path="res://LaserExplosionImage/laser_explosion (1).png" type="Texture" id=9]
+[ext_resource path="res://laser_shot.wav" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "LaserDisapear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="LaserBeam" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+exclude_parent = false
+collision_mask = 2
+
+[node name="Beam" type="Sprite" parent="RayCast2D"]
+visible = false
+z_index = 5
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2, 1 )
+
+[node name="AnimationBeam" type="AnimationPlayer" parent="RayCast2D/Beam"]
+anims/LaserDisapear = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0
+pitch_scale = 0.7
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

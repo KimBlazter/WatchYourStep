@@ -1,0 +1,401 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://oldman_idle0.png" type="Texture" id=1]
+[ext_resource path="res://oldman_idle1.png" type="Texture" id=2]
+[ext_resource path="res://OldBlindMan.gd" type="Script" id=3]
+[ext_resource path="res://DropShadow.png" type="Texture" id=4]
+[ext_resource path="res://oldman_walk1.png" type="Texture" id=5]
+[ext_resource path="res://oldman_walk0.png" type="Texture" id=6]
+[ext_resource path="res://start_screen.png" type="Texture" id=7]
+[ext_resource path="res://debug.gd" type="Script" id=8]
+[ext_resource path="res://game_over_screen.png" type="Texture" id=9]
+[ext_resource path="res://energy.png" type="Texture" id=10]
+[ext_resource path="res://StartupSound.wav" type="AudioStream" id=11]
+[ext_resource path="res://ExplosionRetro.wav" type="AudioStream" id=12]
+[ext_resource path="res://music_r.mp3" type="AudioStream" id=13]
+[ext_resource path="res://8-bit-pusab.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://press_etc.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.5, 7.5 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 249, 10 )
+
+[sub_resource type="CanvasItemMaterial" id=18]
+light_mode = 1
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.24444, 1.24444 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=19]
+light_mode = 1
+
+[sub_resource type="Animation" id=16]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Scale"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 14 )
+
+[sub_resource type="CanvasItemMaterial" id=20]
+light_mode = 1
+
+[sub_resource type="Animation" id=7]
+resource_name = "GameOver"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1.24444, 1.24444 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.24444, 1.24444 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 251.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 10, 140.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 14.5, 141 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 255.5, 10 )
+
+[sub_resource type="CanvasItemMaterial" id=21]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id=22]
+light_mode = 1
+
+[sub_resource type="DynamicFont" id=17]
+size = 12
+outline_size = 2
+font_data = ExtResource( 14 )
+
+[sub_resource type="CanvasItemMaterial" id=23]
+light_mode = 1
+
+[sub_resource type="DynamicFont" id=13]
+size = 12
+outline_size = 2
+font_data = ExtResource( 14 )
+
+[node name="OldManBody" type="KinematicBody2D"]
+pause_mode = 2
+collision_layer = 4
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -8, -9 )
+z_index = 2
+frames = SubResource( 1 )
+animation = "walk"
+playing = true
+centered = false
+
+[node name="DropShadow" type="Sprite" parent="Sprite"]
+position = Vector2( 8, 16 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 203 )
+shape = SubResource( 3 )
+
+[node name="StartupMenu" type="Sprite" parent="."]
+material = SubResource( 18 )
+position = Vector2( -1.19209e-07, 0 )
+scale = Vector2( 1.24444, 1.24444 )
+z_index = 5
+z_as_relative = false
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartupMenu"]
+anims/RESET = SubResource( 4 )
+anims/Start = SubResource( 5 )
+
+[node name="Press" type="Sprite" parent="StartupMenu"]
+material = SubResource( 19 )
+position = Vector2( 0, 83 )
+texture = ExtResource( 15 )
+
+[node name="AnimationText" type="AnimationPlayer" parent="StartupMenu/Press"]
+autoplay = "Scale"
+anims/Hide = SubResource( 16 )
+anims/RESET = SubResource( 14 )
+anims/Scale = SubResource( 15 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2( 1.52588e-05, 0 )
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="Fps" type="Label" parent="."]
+visible = false
+margin_left = 181.0
+margin_top = -130.0
+margin_right = 234.0
+margin_bottom = -99.0
+custom_fonts/font = SubResource( 12 )
+text = "fps
+"
+align = 2
+script = ExtResource( 8 )
+
+[node name="GameOverMenu" type="Sprite" parent="."]
+visible = false
+material = SubResource( 20 )
+position = Vector2( -2.38418e-07, 0 )
+scale = Vector2( 1.24444, 1.24444 )
+z_index = 6
+z_as_relative = false
+texture = ExtResource( 9 )
+
+[node name="GOAnimationPlayer" type="AnimationPlayer" parent="GameOverMenu"]
+anims/GameOver = SubResource( 7 )
+anims/RESET = SubResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 205, -137 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -206, -6 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 44, 138.5 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -459.5, 138 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -196.5, 281 )
+shape = SubResource( 11 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -240, -135 )
+z_index = 4
+
+[node name="Control" type="Control" parent="Node2D"]
+margin_top = 1.0
+margin_right = 480.0
+margin_bottom = 271.0
+
+[node name="Sprite" type="Sprite" parent="Node2D/Control"]
+material = SubResource( 21 )
+position = Vector2( 456, 23 )
+texture = ExtResource( 10 )
+
+[node name="EnergyAmount" type="Label" parent="Node2D/Control"]
+material = SubResource( 22 )
+margin_left = 395.0
+margin_top = 10.0
+margin_right = 441.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "100x"
+align = 2
+
+[node name="Score" type="Label" parent="Node2D"]
+material = SubResource( 23 )
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 85.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "Score: "
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[node name="EnvMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+pitch_scale = 0.7
+
+[node name="StartupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+pitch_scale = 0.7
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="StartupMenu/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GameOverMenu/GOAnimationPlayer" to="." method="_on_GOAnimationPlayer_animation_finished"]
